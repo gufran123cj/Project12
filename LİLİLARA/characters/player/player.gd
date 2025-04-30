@@ -4,10 +4,11 @@ extends CharacterBody3D
 @onready var character_mover = $CharacterMover
 @onready var health_manager = $HealthManager
 @onready var weapon_manager = $Camera3D/WeaponManager
+@onready var hud = $"../Label"
 
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_v = 0.15
-
+var reset_counter = 0
 
 const HOTKEYS = {
 	KEY_1: 0,
@@ -23,7 +24,6 @@ const HOTKEYS = {
 }
 
 var dead = false
-
 
 
 func _ready():
@@ -50,6 +50,10 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("inventory"):  #e tuşu yaptm
+		hud.text = "oha"
+		
+		
 	if Input.is_action_just_pressed("fullscreen"):
 		var fs = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 		if fs:

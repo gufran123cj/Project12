@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0dhe3gjbitcc"]
+[gd_scene load_steps=11 format=3 uid="uid://0dhe3gjbitcc"]
 
 [ext_resource type="PackedScene" uid="uid://b8s3n8yb106ff" path="res://environment/rock_boulder.tscn" id="1_316k8"]
 [ext_resource type="PackedScene" uid="uid://cbi1yylc50bjl" path="res://environment/rock_cliff.tscn" id="2_ufsoc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xcc2qxswssvn" path="res://environment/sand.tscn" id="4_uqlee"]
 [ext_resource type="PackedScene" uid="uid://bosesbvnakx3t" path="res://characters/player/player.tscn" id="5_l8cp7"]
 [ext_resource type="PackedScene" uid="uid://dixf6yuoptk1r" path="res://effects/bullet_hit_effect.tscn" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://cxoshik85qxu1" path="res://blender/abyss_j.blend" id="7_pkg7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gjlv8"]
 
@@ -83,4 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9144, 2.58258, -7.82841)
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "lets gooo"
+text = "damn"
+
+[node name="abyss_j" parent="." instance=ExtResource("7_pkg7o")]
+transform = Transform3D(6.99, 0, 0, 0, 6.61231, 2.26661, 0, -2.26661, 6.61231, 24.2252, -5.14191, -60.6916)

@@ -22,31 +22,31 @@ sky = SubResource("Sky_0g27o")
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="RockBoulder" parent="Environment" instance=ExtResource("1_316k8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6225, 0, -27.4705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7518, 0, -22.3396)
 
 [node name="RockBoulder2" parent="Environment" instance=ExtResource("1_316k8")]
-transform = Transform3D(0.761449, -0.634378, -0.133266, 0.576797, 0.569256, 0.585877, -0.295805, -0.522983, 0.799367, 15.0537, 1.83893, -32.0701)
+transform = Transform3D(0.761449, -0.634378, -0.133266, 0.576797, 0.569256, 0.585877, -0.295805, -0.522983, 0.799367, 50.4351, 18.9745, -26.7114)
 
 [node name="RockBoulder3" parent="Environment" instance=ExtResource("1_316k8")]
-transform = Transform3D(0.286009, -0.846916, -0.448254, 0.957052, 0.229315, 0.17739, -0.047443, -0.479738, 0.876129, 18.5789, 0.818082, -16.9645)
+transform = Transform3D(0.286009, -0.846916, -0.448254, 0.957052, 0.229315, 0.17739, -0.047443, -0.479738, 0.876129, 43.4924, 10.7064, -37.0273)
 
 [node name="RockCliff" parent="Environment" instance=ExtResource("2_ufsoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35596, -7.62939e-06, 9.25215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.71028, -7.62939e-06, 18.4878)
 
 [node name="RockCliff2" parent="Environment" instance=ExtResource("2_ufsoc")]
-transform = Transform3D(-0.0621111, 0, -0.998069, 0, 1, 0, 0.998069, 0, -0.0621111, 69.491, -7.62939e-06, -49.7616)
+transform = Transform3D(-0.0621111, 0, -0.998069, 0, 1, 0, 0.998069, 0, -0.0621111, 57.5188, -7.62939e-06, -46.17)
 
 [node name="RockPillar" parent="Environment" instance=ExtResource("3_otspo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3923, 0, 11.4116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9193, 0, 19.6211)
 
 [node name="RockPillar2" parent="Environment" instance=ExtResource("3_otspo")]
-transform = Transform3D(0.504362, 0, 0.863492, 0, 1, 0, -0.863492, 0, 0.504362, 51.0976, 0, 22.3614)
+transform = Transform3D(0.504362, 0, 0.863492, 0, 1, 0, -0.863492, 0, 0.504362, 50.9266, 0, 19.4539)
 
 [node name="RockPillar3" parent="Environment" instance=ExtResource("3_otspo")]
-transform = Transform3D(0.504362, 0, 0.863492, 0, 1, 0, -0.863492, 0, 0.504362, 56.14, 0, -10.5378)
+transform = Transform3D(0.504362, 0, 0.863492, 0, 1, 0, -0.863492, 0, 0.504362, 56.14, -6.93581, -10.5378)
 
 [node name="RockPillar4" parent="Environment" instance=ExtResource("3_otspo")]
-transform = Transform3D(0.504362, 0, 0.863492, 0, 1, 0, -0.863492, 0, 0.504362, 0.434204, 0, -39.3163)
+transform = Transform3D(0.504362, 0, 0.863492, 0, 1, 0, -0.863492, 0, 0.504362, 2.99967, 0, -41.8818)
 
 [node name="Sand" parent="Environment" instance=ExtResource("4_uqlee")]
 

@@ -219,11 +219,11 @@ script = ExtResource("1_7n32i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_jyx7a")
 
-[node name="SKULL3" parent="." instance=ExtResource("2_rpf03")]
-transform = Transform3D(-0.0302245, -3.72529e-09, -0.999543, 0.0411245, 0.999153, -0.00124354, 0.998697, -0.0411432, -0.0301989, 0.0899339, -1.4365, 0.901778)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70977, -0.26524)
+
+[node name="SKULL3" parent="Camera3D" instance=ExtResource("2_rpf03")]
+transform = Transform3D(-0.0302245, -3.72529e-09, -0.999543, 0.0411245, 0.999153, -0.00124354, 0.998697, -0.0411432, -0.0301989, 0.0899339, -3.14627, 1.16702)
 
 [node name="WeaponManager" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500383, -0.374198, -0.790121)

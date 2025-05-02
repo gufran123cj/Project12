@@ -8,12 +8,14 @@ extends Node3D
 @export var stop_drag = 0.9
 @export var dash_speed = 40.0
 @export var dash_duration = 0.2
+@export var dash_cooldown = 3.0 
 
 var character_body : CharacterBody3D
 var move_drag = 0.0
 var move_dir : Vector3
 var dash_time_left = 0.0
 var dash_velocity = Vector3.ZERO
+var dash_cooldown_timer = 0.0
 
 
 

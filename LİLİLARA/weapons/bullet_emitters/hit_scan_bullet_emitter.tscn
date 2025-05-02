@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb6bfvnmtsadm"]
 
-[ext_resource type="Script" uid="uid://d31ssvn4jj0up" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.gd" id="1_x6ndc"]
+[ext_resource type="Script" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.gd" id="1_x6ndc"]
 
 [node name="HitScanBulletEmitter" type="Node3D"]
 script = ExtResource("1_x6ndc")

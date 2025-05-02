@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dixf6yuoptk1r"]
+[gd_scene load_steps=10 format=3 uid="uid://dixf6yuoptk1r"]
 
 [ext_resource type="Texture2D" uid="uid://bd0oqwg7lrptw" path="res://effects/circle32.png" id="1_nkhfo"]
 
@@ -53,8 +53,6 @@ color_ramp = SubResource("GradientTexture1D_hxpl1")
 radial_segments = 7
 rings = 3
 
-[sub_resource type="QuadMesh" id="QuadMesh_ic1nv"]
-
 [node name="BulletHitEffect" type="Node3D"]
 
 [node name="SparkParticles" type="GPUParticles3D" parent="."]
@@ -74,10 +72,6 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_13ash")
 draw_pass_1 = SubResource("SphereMesh_ih80c")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.998364, -0.0571806, 0, 0.0571806, -0.998364, 0, 0, 0)
-mesh = SubResource("QuadMesh_ic1nv")
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

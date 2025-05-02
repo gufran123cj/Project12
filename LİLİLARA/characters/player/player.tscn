@@ -1,16 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://bosesbvnakx3t"]
+[gd_scene load_steps=25 format=3 uid="uid://bosesbvnakx3t"]
 
-[ext_resource type="Script" uid="uid://c1wji0f6ikh7s" path="res://characters/player/player.gd" id="1_7n32i"]
-[ext_resource type="PackedScene" uid="uid://c3hfo8n3m1t7s" path="res://blender/SKULL3.blend" id="2_rpf03"]
+[ext_resource type="Script" uid="uid://crsgmucjklvt7" path="res://characters/player/player.gd" id="1_7n32i"]
 [ext_resource type="PackedScene" uid="uid://efhaiq50xokb" path="res://characters/character_mover.tscn" id="2_vtwgx"]
-[ext_resource type="Script" uid="uid://bgva0a3aikadc" path="res://characters/player/weapon_manager.gd" id="2_xwbhm"]
+[ext_resource type="Script" uid="uid://c3jl264281rxo" path="res://characters/player/weapon_manager.gd" id="2_xwbhm"]
 [ext_resource type="PackedScene" uid="uid://c32igc5b5mp8d" path="res://weapons/assets/machete.glb" id="3_1jjs7"]
 [ext_resource type="PackedScene" uid="uid://kry43mb8dukk" path="res://characters/health_manager.tscn" id="3_46chp"]
 [ext_resource type="PackedScene" uid="uid://bb1xpijsib3ha" path="res://weapons/assets/machinegun.glb" id="3_kunn4"]
 [ext_resource type="PackedScene" uid="uid://r3vm1bqpmhqy" path="res://weapons/assets/shotgun.glb" id="5_afp0a"]
 [ext_resource type="PackedScene" uid="uid://cetjxduwon0nx" path="res://weapons/assets/rocketlauncher.glb" id="6_2k05y"]
+[ext_resource type="PackedScene" uid="uid://c5wg4gnyejteh" path="res://weapons/bullet_emitters/bullet_emitter.tscn" id="7_brirq"]
+[ext_resource type="PackedScene" uid="uid://bb6bfvnmtsadm" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.tscn" id="8_1rgm5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jyx7a"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s242t"]
 
 [sub_resource type="Animation" id="Animation_qn6ua"]
 length = 0.001
@@ -211,7 +214,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_7n32i")
 
@@ -219,11 +222,12 @@ script = ExtResource("1_7n32i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_jyx7a")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70977, -0.26524)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_s242t")
 
-[node name="SKULL3" parent="Camera3D" instance=ExtResource("2_rpf03")]
-transform = Transform3D(-0.0302245, -3.72529e-09, -0.999543, 0.0411245, 0.999153, -0.00124354, 0.998697, -0.0411432, -0.0301989, 0.0899339, -3.14627, 1.16702)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="WeaponManager" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500383, -0.374198, -0.790121)
@@ -291,6 +295,16 @@ libraries = {
 }
 autoplay = "RESET"
 
+[node name="BulletEmitter" parent="Camera3D" instance=ExtResource("7_brirq")]
+
+[node name="Timer" type="Timer" parent="Camera3D/BulletEmitter"]
+autostart = true
+
+[node name="HitScanBulletEmitter" parent="Camera3D/BulletEmitter" instance=ExtResource("8_1rgm5")]
+
 [node name="CharacterMover" parent="." instance=ExtResource("2_vtwgx")]
 
 [node name="HealthManager" parent="." instance=ExtResource("3_46chp")]
+verbose = true
+
+[connection signal="timeout" from="Camera3D/BulletEmitter/Timer" to="Camera3D/BulletEmitter" method="fire"]

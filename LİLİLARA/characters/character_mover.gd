@@ -19,7 +19,6 @@ func set_move_dir(new_move_dir: Vector3):
 	move_dir = new_move_dir
 
 func jump():
-	if character_body.is_on_floor():
 		character_body.velocity.y = jump_force
 
 func _physics_process(delta):
@@ -37,3 +36,12 @@ func _physics_process(delta):
 	character_body.velocity += move_accel * move_dir - flat_velo * drag
 	
 	character_body.move_and_slide()
+
+func is_on_floor() -> bool:
+	return character_body.is_on_floor()
+	
+func is_on_ceiling() -> bool:
+	return character_body.is_on_ceiling()
+
+func is_on_wall() -> bool:
+	return character_body.is_on_wall()

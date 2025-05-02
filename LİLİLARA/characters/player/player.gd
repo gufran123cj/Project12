@@ -8,6 +8,8 @@ extends CharacterBody3D
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_v = 0.15
 
+var jump_count = 0
+var max_jumps = 2
 
 const HOTKEYS = {
 	KEY_1: 0,
@@ -63,9 +65,14 @@ func _process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 	var move_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	if character_mover.is_on_floor():
+		jump_count = 0
+	
 	character_mover.set_move_dir(move_dir)
-	if Input.is_action_just_pressed("jump"):
+	
+	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		character_mover.jump()
+		jump_count += 1
 	
 	weapon_manager.attack(Input.is_action_just_pressed("attack"), Input.is_action_pressed("attack"))
 

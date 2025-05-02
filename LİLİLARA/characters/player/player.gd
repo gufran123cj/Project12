@@ -62,6 +62,10 @@ func _process(delta):
 	if dead:
 		return
 	
+	if Input.is_action_just_pressed("dash"):
+		var forward = -camera_3d.global_transform.basis.z
+		character_mover.dash(forward)
+	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 	var move_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	

@@ -49,7 +49,12 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if has_node("Graphics/MuzzleFlash"):
 		$Graphics/MuzzleFlash.flash()
 
+func actually_attack():
+	bullet_emitter.global_transform = fire_point.global_transform
+	bullet_emitter.fire()
+	
 func set_active(a: bool):
+	$Crosshairs.visible = a
 	visible = a
 	if !a:
 		animation_player.play("RESET")

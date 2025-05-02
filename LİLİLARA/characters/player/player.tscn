@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bosesbvnakx3t"]
+[gd_scene load_steps=29 format=3 uid="uid://bosesbvnakx3t"]
 
 [ext_resource type="Script" uid="uid://crsgmucjklvt7" path="res://characters/player/player.gd" id="1_7n32i"]
 [ext_resource type="PackedScene" uid="uid://c3hfo8n3m1t7s" path="res://blender/SKULL3.blend" id="2_3t07l"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c5wg4gnyejteh" path="res://weapons/bullet_emitters/bullet_emitter.tscn" id="7_brirq"]
 [ext_resource type="PackedScene" uid="uid://bb6bfvnmtsadm" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.tscn" id="8_1rgm5"]
 [ext_resource type="PackedScene" uid="uid://di8nh2dico2ex" path="res://effects/muzzle_flash/assets/muzzleflash1.glb" id="8_icpky"]
+[ext_resource type="Texture2D" uid="uid://ofvdv0cwgcjm" path="res://weapons/crosshairs/crosshair001.png" id="11_58jvb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jyx7a"]
 
@@ -279,6 +280,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.224217, -0.057038)
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/MachineGun" instance=ExtResource("7_brirq")]
 
 [node name="HitScanBulletEmitter" parent="Camera3D/WeaponManager/Weapons/MachineGun/BulletEmitter" instance=ExtResource("8_1rgm5")]
+
+[node name="Crosshair" type="TextureRect" parent="Camera3D/WeaponManager/Weapons/MachineGun"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("11_58jvb")
 
 [node name="Shotgun" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(0.42332, 0, 0, 0, 0.42332, 0, 0, 0, 0.42332, 0, 0, 0)

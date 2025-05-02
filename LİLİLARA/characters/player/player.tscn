@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bosesbvnakx3t"]
+[gd_scene load_steps=28 format=3 uid="uid://bosesbvnakx3t"]
 
 [ext_resource type="Script" uid="uid://crsgmucjklvt7" path="res://characters/player/player.gd" id="1_7n32i"]
 [ext_resource type="PackedScene" uid="uid://c3hfo8n3m1t7s" path="res://blender/SKULL3.blend" id="2_3t07l"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://r3vm1bqpmhqy" path="res://weapons/assets/shotgun.glb" id="5_afp0a"]
 [ext_resource type="Script" uid="uid://byw8jv0b35oao" path="res://weapons/weapon.gd" id="5_on558"]
 [ext_resource type="PackedScene" uid="uid://cetjxduwon0nx" path="res://weapons/assets/rocketlauncher.glb" id="6_2k05y"]
+[ext_resource type="PackedScene" uid="uid://boiivv0jmfawe" path="res://effects/muzzle_flash/muzzle_flash.tscn" id="6_gqopd"]
 [ext_resource type="PackedScene" uid="uid://c5wg4gnyejteh" path="res://weapons/bullet_emitters/bullet_emitter.tscn" id="7_brirq"]
 [ext_resource type="PackedScene" uid="uid://bb6bfvnmtsadm" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.tscn" id="8_1rgm5"]
+[ext_resource type="PackedScene" uid="uid://di8nh2dico2ex" path="res://effects/muzzle_flash/assets/muzzleflash1.glb" id="8_icpky"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jyx7a"]
 
@@ -267,6 +269,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_imd2l")
 }
 autoplay = "RESET"
+
+[node name="MuzzleFlash" parent="Camera3D/WeaponManager/Weapons/MachineGun/Graphics" instance=ExtResource("6_gqopd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.487397, -1.82827)
+
+[node name="muzzleflash1" parent="Camera3D/WeaponManager/Weapons/MachineGun/Graphics/MuzzleFlash" instance=ExtResource("8_icpky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.224217, -0.057038)
 
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/MachineGun" instance=ExtResource("7_brirq")]
 

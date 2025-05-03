@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var character_mover = $CharacterMover
 @onready var health_manager = $HealthManager
 @onready var weapon_manager = $Camera3D/WeaponManager
-
+@onready var music = $AudioStreamPlayer3D
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_v = 0.15
 
@@ -30,6 +30,7 @@ var dead = false
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	music.play()
 	health_manager.died.connect(kill)
 
 func _input(event):

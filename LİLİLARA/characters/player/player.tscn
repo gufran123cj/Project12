@@ -284,6 +284,7 @@ autoplay = "RESET"
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/Machete" instance=ExtResource("7_brirq")]
 
 [node name="AreaDamageEmitter" parent="Camera3D/WeaponManager/Weapons/Machete/BulletEmitter" instance=ExtResource("6_mphc1")]
+transform = Transform3D(1, 0, -5.82077e-11, 0, 1, 0, 5.82077e-11, 0, 1, 0.00151515, 0, -1.60766)
 offset_by_radius = true
 
 [node name="HitScanBulletEmitter" parent="Camera3D/WeaponManager/Weapons/Machete/BulletEmitter" instance=ExtResource("8_1rgm5")]

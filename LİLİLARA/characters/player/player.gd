@@ -35,6 +35,7 @@ func _ready():
 
 func _input(event):
 	if dead:
+		#print("you died")
 		return
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity_h

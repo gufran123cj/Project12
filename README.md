@@ -21,3 +21,4 @@ Dil: GDScript (veya C# / VisualScript, hangisini kullanıyorsan belirt)
 Grafik: 3D düşük çözünürlüklü voxel/pixel art tarzı varlıklar
 
 Ses: Retro synth ve çevresel ses efektleri
+![WhatsApp Image 2025-05-03 at 13 48 05](https://github.com/user-attachments/assets/d23e7952-f180-43a3-aef7-beb5bf672f46)

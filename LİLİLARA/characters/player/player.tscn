@@ -1,9 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://bosesbvnakx3t"]
+[gd_scene load_steps=37 format=3 uid="uid://bosesbvnakx3t"]
 
 [ext_resource type="Script" uid="uid://crsgmucjklvt7" path="res://characters/player/player.gd" id="1_7n32i"]
 [ext_resource type="PackedScene" uid="uid://dvdq1yyxt4ftd" path="res://blender/SKULL2.blend" id="2_kyfeq"]
+[ext_resource type="LabelSettings" uid="uid://itjl4gkgm4hd" path="res://font/new_label_settings.tres" id="2_lv4bx"]
 [ext_resource type="PackedScene" uid="uid://efhaiq50xokb" path="res://characters/character_mover.tscn" id="2_vtwgx"]
 [ext_resource type="Script" uid="uid://c3jl264281rxo" path="res://characters/player/weapon_manager.gd" id="2_xwbhm"]
+[ext_resource type="AudioStream" uid="uid://creds7m57wkvy" path="res://audio/Lego Yoda Death Sound 4.mp3" id="2_yybc7"]
 [ext_resource type="PackedScene" uid="uid://c32igc5b5mp8d" path="res://weapons/assets/machete.glb" id="3_1jjs7"]
 [ext_resource type="PackedScene" uid="uid://kry43mb8dukk" path="res://characters/health_manager.tscn" id="3_46chp"]
 [ext_resource type="PackedScene" uid="uid://bb1xpijsib3ha" path="res://weapons/assets/machinegun.glb" id="3_kunn4"]
@@ -241,15 +243,38 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_7n32i")
 
+[node name="hp_hud" type="Label" parent="."]
+offset_right = 50.0
+offset_bottom = 23.0
+label_settings = ExtResource("2_lv4bx")
+
+[node name="death_message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -395.0
+offset_top = -117.0
+offset_right = -345.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+
+[node name="death_sound" type="AudioStreamPlayer3D" parent="death_message"]
+stream = ExtResource("2_yybc7")
+max_db = 6.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_jyx7a")
 
-[node name="SKULL2" parent="." instance=ExtResource("2_kyfeq")]
-transform = Transform3D(0.0224256, 0.0283332, -0.999347, 0, 0.999598, 0.0283404, 0.999749, -0.00063555, 0.0224166, -0.0196579, 1.54864, 0.392841)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0.000942478, 0, 1, 0, -0.000942478, 0, 1, 0, 1.5, 0)
+
+[node name="SKULL2" parent="Camera3D" instance=ExtResource("2_kyfeq")]
+transform = Transform3D(0.0214833, 0.0283338, -0.999368, 0, 0.999598, 0.0283404, 0.99977, -0.000608846, 0.0214747, -0.0200281, 0.04864, 0.392822)
 
 [node name="FirePoint" type="Node3D" parent="Camera3D"]
 unique_name_in_owner = true
@@ -257,6 +282,15 @@ unique_name_in_owner = true
 [node name="WeaponManager" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, -0.374, -0.645)
 script = ExtResource("2_xwbhm")
+
+[node name="ammo_hud" type="Label" parent="Camera3D/WeaponManager"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 120.0
+grow_vertical = 0
+label_settings = ExtResource("2_lv4bx")
 
 [node name="Weapons" type="Node3D" parent="Camera3D/WeaponManager"]
 
@@ -383,6 +417,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("21_5mkjs")
-max_db = 6.0
+unit_size = 0.1
 
 [editable path="Camera3D/WeaponManager/Weapons/Machete/BulletEmitter/HitScanBulletEmitter"]

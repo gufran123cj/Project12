@@ -5,6 +5,12 @@ extends CharacterBody3D
 @onready var health_manager = $HealthManager
 @onready var weapon_manager = $Camera3D/WeaponManager
 @onready var music = $AudioStreamPlayer3D
+@onready var hud = $death_message
+@onready var hp_hud = $hp_hud
+@onready var death_sound = $death_message/death_sound
+
+
+
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_v = 0.15
 
@@ -29,14 +35,20 @@ var dead = false
 
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	music.play()
-	health_manager.died.connect(kill)
+	if dead == false:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		music.play()
+		health_manager.died.connect(kill)
 
 func _input(event):
 	if dead:
-		#print("you died")
+		music.volume_db = 0 #sesi kısıyor
+		death_sound.play()
+		hud.text = "you died \n press  'r'  to restart"
 		return
+	else:
+		hud.text = " "
+		music.volume_db = 100
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity_h
 		camera_3d.rotation_degrees.x -= event.relative.y * mouse_sensitivity_v
@@ -50,6 +62,8 @@ func _input(event):
 		weapon_manager.switch_to_weapon_slot(HOTKEYS[event.keycode])
 
 func _process(delta):
+	if Input.is_action_just_pressed("inventory"):
+		pass
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
@@ -81,7 +95,7 @@ func _process(delta):
 		jump_count += 1
 	
 	weapon_manager.attack(Input.is_action_just_pressed("attack"), Input.is_action_pressed("attack"))
-
+	hp_hud.text = "HP: "+str(health_manager.cur_health)
 func kill():
 	dead = true
 	character_mover.set_move_dir(Vector3.ZERO)

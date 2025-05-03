@@ -5,6 +5,7 @@ class_name Weapon
 @onready var animation_player :AnimationPlayer = $Graphics/AnimationPlayer
 @onready var bullet_emitter : BulletEmitter = $BulletEmitter
 @onready var fire_point : Node3D = %FirePoint
+@onready var ammo_hud = $"../../ammo_hud"
 
 @export var automatic = false
 
@@ -24,6 +25,7 @@ func set_bodies_to_exclude(bodies: Array):
 	bullet_emitter.set_bodies_to_exclude(bodies)
 
 func attack(input_just_pressed: bool, input_held: bool):
+	ammo_hud.text = "ammo count: "+str(ammo)
 	if !automatic and !input_just_pressed:
 		return
 	if automatic and !input_held:

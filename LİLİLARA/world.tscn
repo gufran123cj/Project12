@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0dhe3gjbitcc"]
+[gd_scene load_steps=12 format=3 uid="uid://0dhe3gjbitcc"]
 
 [ext_resource type="PackedScene" uid="uid://b8s3n8yb106ff" path="res://environment/rock_boulder.tscn" id="1_316k8"]
 [ext_resource type="PackedScene" uid="uid://cbi1yylc50bjl" path="res://environment/rock_cliff.tscn" id="2_ufsoc"]
@@ -17,6 +17,9 @@ sky_material = SubResource("PanoramaSkyMaterial_gbfbk")
 [sub_resource type="Environment" id="Environment_hojj7"]
 background_mode = 2
 sky = SubResource("Sky_0g27o")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pkg7o"]
+radius = 1.35
 
 [node name="World" type="Node3D"]
 
@@ -192,20 +195,16 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("5_l8cp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1.45619, 0)
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "damn"
-
 [node name="abyss_j" parent="." instance=ExtResource("7_pkg7o")]
 transform = Transform3D(4.7302, -1.66879, 4.86832, 0, 6.61231, 2.26661, -5.14639, -1.53384, 4.47461, -47.4525, -1.31976, -85.9524)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="abyss_j"]
-transform = Transform3D(0.143062, -3.72529e-09, 7.45058e-09, 0, 0.143061, -5.58794e-09, 7.45058e-09, 1.86265e-09, 0.143061, 0, 2.38653, 0.818069)
+transform = Transform3D(1, -6.78072e-16, -5.20794e-08, 0, 1, -1.302e-08, 5.20794e-08, 1.302e-08, 1, 0, 2.38653, 0.818069)
 light_color = Color(0.825906, 0.563909, 0, 1)
 light_energy = 26.45
 
 [node name="Area3D" type="Area3D" parent="abyss_j"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="abyss_j/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -5.96046e-08, 0, 5.96046e-08, 1, 0, 1.32048, 0.452644)
+transform = Transform3D(1, 1.49012e-08, 0, -2.98023e-08, 1, -5.96046e-08, 0, 7.45058e-08, 1, 0.0125284, 2.29094, -0.0349178)
+shape = SubResource("SphereShape3D_pkg7o")

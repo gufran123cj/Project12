@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://itjl4gkgm4hd"]
+
+[ext_resource type="FontFile" uid="uid://ryeyx3xhbqd" path="res://font/MetalBlockUltra.ttf" id="1_erqoo"]
+
+[resource]
+font = ExtResource("1_erqoo")
+font_size = 40
+font_color = Color(0.867855, 0.2218, 0.250207, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)

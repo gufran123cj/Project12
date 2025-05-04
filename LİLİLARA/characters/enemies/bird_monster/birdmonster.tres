@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://u4axsrkr8sv7"]
+
+[resource]
+resource_name = "birdmonster"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+roughness = 0.4
+emission_enabled = true
+texture_filter = 2

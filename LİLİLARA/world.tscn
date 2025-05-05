@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0dhe3gjbitcc"]
+[gd_scene load_steps=14 format=3 uid="uid://0dhe3gjbitcc"]
 
 [ext_resource type="PackedScene" uid="uid://b8s3n8yb106ff" path="res://environment/rock_boulder.tscn" id="1_316k8"]
 [ext_resource type="PackedScene" uid="uid://cbi1yylc50bjl" path="res://environment/rock_cliff.tscn" id="2_ufsoc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bosesbvnakx3t" path="res://characters/player/player.tscn" id="5_l8cp7"]
 [ext_resource type="Texture2D" uid="uid://hiadandqtdbc" path="res://weapons/projectiles/assets/660.jpg" id="5_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://cxoshik85qxu1" path="res://blender/abyss_j.blend" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://bi3lfkomdg1ou" path="res://characters/enemies/bird_monster/birdmonster.glb" id="8_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://56ih13wdsf3v" path="res://characters/enemies/reptile_monster/reptilemonster.glb" id="9_ioo17"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gbfbk"]
 panorama = ExtResource("5_pkg7o")
@@ -208,3 +210,9 @@ light_energy = 26.45
 [node name="CollisionShape3D" type="CollisionShape3D" parent="abyss_j/Area3D"]
 transform = Transform3D(1, 1.49012e-08, 0, -2.98023e-08, 1, -5.96046e-08, 0, 7.45058e-08, 1, 0.0125284, 2.29094, -0.0349178)
 shape = SubResource("SphereShape3D_pkg7o")
+
+[node name="birdmonster" parent="." instance=ExtResource("8_gbfbk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.89677, -33.889)
+
+[node name="reptilemonster" parent="." instance=ExtResource("9_ioo17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57596, -41.4481)

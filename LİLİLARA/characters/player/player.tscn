@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://bosesbvnakx3t"]
+[gd_scene load_steps=38 format=3 uid="uid://bosesbvnakx3t"]
 
 [ext_resource type="Script" uid="uid://crsgmucjklvt7" path="res://characters/player/player.gd" id="1_7n32i"]
+[ext_resource type="PackedScene" uid="uid://b8swtikgb3t03" path="res://blender/bira.blend" id="2_jgd8i"]
 [ext_resource type="PackedScene" uid="uid://dvdq1yyxt4ftd" path="res://blender/SKULL2.blend" id="2_kyfeq"]
 [ext_resource type="LabelSettings" uid="uid://itjl4gkgm4hd" path="res://font/new_label_settings.tres" id="2_lv4bx"]
 [ext_resource type="PackedScene" uid="uid://efhaiq50xokb" path="res://characters/character_mover.tscn" id="2_vtwgx"]
@@ -242,6 +243,9 @@ _data = {
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_7n32i")
+
+[node name="bira" parent="." instance=ExtResource("2_jgd8i")]
+transform = Transform3D(0.0788741, 0, 0.0614726, 0, 0.1, 0, -0.0614726, 0, 0.0788741, -0.624929, 1.12203, -0.582321)
 
 [node name="hp_hud" type="Label" parent="."]
 offset_right = 50.0

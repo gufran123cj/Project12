@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://boiivv0jmfawe"]
 
-[ext_resource type="Script" uid="uid://bbavud8k86wg" path="res://effects/muzzle_flash/muzzle_flash.gd" id="1_e8ac0"]
+[ext_resource type="Script" path="res://effects/muzzle_flash/muzzle_flash.gd" id="1_e8ac0"]
 
 [node name="MuzzleFlash" type="Node3D"]
 script = ExtResource("1_e8ac0")

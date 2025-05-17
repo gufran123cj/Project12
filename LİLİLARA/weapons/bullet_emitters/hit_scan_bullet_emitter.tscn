@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bb6bfvnmtsadm"]
 
-[ext_resource type="Script" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.gd" id="1_x6ndc"]
+[ext_resource type="Script" uid="uid://bm4i1pw3eig5d" path="res://weapons/bullet_emitters/hit_scan_bullet_emitter.gd" id="1_x6ndc"]
 
 [node name="HitScanBulletEmitter" type="Node3D"]
 script = ExtResource("1_x6ndc")
@@ -9,3 +9,4 @@ script = ExtResource("1_x6ndc")
 enabled = false
 target_position = Vector3(0, 0, -10000)
 collision_mask = 5
+collide_with_areas = true

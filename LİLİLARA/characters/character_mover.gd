@@ -25,6 +25,7 @@ func dash(direction: Vector3):
 	dash_velocity = direction.normalized() * dash_speed
 	dash_time_left = dash_duration
 
+signal moved(velocity: Vector3, grounded: bool)
 
 func _ready():
 	character_body = get_parent()
@@ -34,6 +35,7 @@ func set_move_dir(new_move_dir: Vector3):
 	move_dir = new_move_dir
 
 func jump():
+	#if character_body.is_on_floor():
 		character_body.velocity.y = jump_force
 
 func _physics_process(delta):
@@ -54,6 +56,22 @@ func _physics_process(delta):
 		flat_velo.y = 0.0
 		character_body.velocity += move_accel * move_dir - flat_velo * drag
 	character_body.move_and_slide()
+	
+	if character_body.velocity.y > 0.0 and character_body.is_on_ceiling():
+		character_body.velocity.y = 0.0
+	if not character_body.is_on_floor():
+		character_body.velocity.y -= gravity * delta
+	
+	var drag = move_drag
+	if move_dir.is_zero_approx():
+		drag = stop_drag
+	
+	var flat_velo = character_body.velocity
+	flat_velo.y = 0.0
+	character_body.velocity += move_accel * move_dir - flat_velo * drag
+	
+	character_body.move_and_slide()
+	moved.emit(character_body.velocity, character_body.is_on_floor())
 
 func is_on_floor() -> bool:
 	return character_body.is_on_floor()

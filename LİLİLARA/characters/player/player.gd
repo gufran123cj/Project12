@@ -47,7 +47,7 @@ func _input(event):
 		hud.text = "you died \n press  'r'  to restart"
 		return
 	else:
-		hud.text = " "
+		#hud.text = " "
 		music.volume_db = 100
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity_h
@@ -95,7 +95,7 @@ func _process(delta):
 		jump_count += 1
 	
 	weapon_manager.attack(Input.is_action_just_pressed("attack"), Input.is_action_pressed("attack"))
-	hp_hud.text = "HP: "+str(health_manager.cur_health)
+	#hp_hud.text = "HP: "+str(health_manager.cur_health)
 func kill():
 	dead = true
 	character_mover.set_move_dir(Vector3.ZERO)

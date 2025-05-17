@@ -2,25 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://byxeypjs2ad7p" path="res://weapons/projectiles/projectile.tscn" id="1_hwj74"]
 [ext_resource type="PackedScene" uid="uid://dno73iltusway" path="res://weapons/projectiles/assets/rocket.glb" id="2_27ehg"]
-[ext_resource type="Script" uid="uid://c1q7irieyldwj" path="res://weapons/projectiles/rocket.gd" id="2_v44wo"]
+[ext_resource type="Script" path="res://weapons/projectiles/rocket.gd" id="2_v44wo"]
 [ext_resource type="PackedScene" uid="uid://c4dcely5fxptb" path="res://effects/muzzle_flash/assets/muzzleflash3.glb" id="3_6fc3j"]
 [ext_resource type="PackedScene" uid="uid://ba0s55d7c0gvk" path="res://weapons/bullet_emitters/area_damage_emitter.tscn" id="5_fy7b6"]
 [ext_resource type="Texture2D" uid="uid://bd0oqwg7lrptw" path="res://effects/circle32.png" id="5_pdj0f"]
-
-[sub_resource type="Animation" id="Animation_ql7mh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_5huuh"]
 resource_name = "spin"
@@ -38,10 +23,25 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
 }
 
+[sub_resource type="Animation" id="Animation_ql7mh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_88jfe"]
 _data = {
-&"RESET": SubResource("Animation_ql7mh"),
-&"spin": SubResource("Animation_5huuh")
+"RESET": SubResource("Animation_ql7mh"),
+"spin": SubResource("Animation_5huuh")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33ymj"]
@@ -56,13 +56,13 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_20npt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13ash"]
-particle_flag_rotate_y = true
 emission_shape = 1
 emission_sphere_radius = 0.3
-angle_max = 720.0
+particle_flag_rotate_y = true
+gravity = Vector3(0, 0.1, 0)
 angular_velocity_min = -10.0
 angular_velocity_max = 10.0
-gravity = Vector3(0, 0.1, 0)
+angle_max = 720.0
 scale_min = 0.4
 scale_max = 0.5
 color = Color(0.509804, 0.509804, 0.509804, 0.694118)
@@ -93,10 +93,10 @@ curve = SubResource("Curve_6curj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5veve"]
 particle_flag_rotate_y = true
-angle_max = 720.0
+gravity = Vector3(0, 0.1, 0)
 angular_velocity_min = -10.0
 angular_velocity_max = 10.0
-gravity = Vector3(0, 0.1, 0)
+angle_max = 720.0
 scale_min = 5.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_0q3kq")
@@ -135,13 +135,13 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_nnse4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bekea"]
-particle_flag_rotate_y = true
 emission_shape = 1
 emission_sphere_radius = 2.0
-angle_max = 720.0
+particle_flag_rotate_y = true
+gravity = Vector3(0, 0.1, 0)
 angular_velocity_min = -10.0
 angular_velocity_max = 10.0
-gravity = Vector3(0, 0.1, 0)
+angle_max = 720.0
 scale_min = 3.0
 scale_max = 4.0
 color = Color(0.509804, 0.509804, 0.509804, 0.694118)
@@ -155,10 +155,10 @@ delete_on_hit_after_time = 2.0
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.964716)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_88jfe")
-}
 autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_88jfe")
+}
 
 [node name="muzzleflash3" parent="Graphics" index="2" instance=ExtResource("3_6fc3j")]
 transform = Transform3D(0.637289, 0, 0, 0, 0.637289, 0, 0, 0, 0.637289, 0, 0, 0.938422)

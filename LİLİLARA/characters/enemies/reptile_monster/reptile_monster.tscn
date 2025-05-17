@@ -27,7 +27,8 @@ height = 0.562693
 radius = 0.0803017
 height = 0.592135
 
-[node name="ReptileMonster" instance=ExtResource("1_6nccq")]
+[node name="ReptileMonster" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_6nccq")]
+animation_player = NodePath("Graphics/reptilemonster/AnimationPlayer")
 
 [node name="CollisionShape3D" parent="." index="1"]
 visible = false
